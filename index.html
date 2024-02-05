@@ -38,8 +38,9 @@
     <script>
         function convertToList() {
             const inputText = document.getElementById("numberInput").value;
-            const numbersArray = inputText.split("\n").map(Number);
-            const commaSeparatedList = numbersArray.join(", ");
+            const numbersArray = inputText.split("\n");
+            const validNumbersArray = numbersArray.filter(num => num.trim() !== ""); // Exclude empty rows
+            const commaSeparatedList = validNumbersArray.join(", ");
             document.getElementById("result").value = commaSeparatedList;
         }
 
@@ -48,6 +49,7 @@
             const uniqueNumbersArray = [...new Set(resultText.split(", "))];
             const uniqueCommaSeparatedList = uniqueNumbersArray.join(", ");
             document.getElementById("result").value = uniqueCommaSeparatedList;
+            alert("Duplicates removed!");
         }
 
         function copyResult() {
