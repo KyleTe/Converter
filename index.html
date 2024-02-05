@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +10,35 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #1a1a1a; /* Dark background color */
-            color: #ffffff; /* Light text color */
+            background-color: #1a1a1a;
+            /* Dark background color */
+            color: #ffffff;
+            /* Light text color */
         }
+
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            background-color: #333; /* Slightly lighter background for the container */
+            background-color: #333;
+            /* Slightly lighter background for the container */
             border-radius: 5px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         textarea {
             width: 100%;
             height: 100px;
             resize: none;
-            border: 1px solid #555; /* Darker border color */
+            border: 1px solid #555;
+            /* Darker border color */
             padding: 10px;
-            background-color: #222; /* Even darker background for the textarea */
-            color: #ffffff; /* Light text color */
+            background-color: #222;
+            /* Even darker background for the textarea */
+            color: #ffffff;
+            /* Light text color */
         }
+
         button {
             margin-top: 10px;
             background-color: #007bff;
@@ -38,16 +48,19 @@
             border-radius: 5px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #0056b3;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Number List Converter</h1>
         <textarea id="numberInput" rows="5" placeholder="Enter numbers (one per line)"></textarea>
         <button onclick="convertToList()">Convert</button>
+        <button onclick="clearAll()">Clear All</button>
         <textarea id="result" rows="5" readonly></textarea>
         <button onclick="removeDuplicates()">Remove Duplicates</button>
         <button onclick="copyResult()">Copy</button>
@@ -67,8 +80,8 @@
             const uniqueNumbersArray = [...new Set(resultText.split(", "))];
             const uniqueCommaSeparatedList = uniqueNumbersArray.join(", ");
             document.getElementById("result").value = uniqueCommaSeparatedList;
-                alert("Duplicates removed!");
-            
+            alert("Duplicates removed!");
+
         }
 
         function copyResult() {
@@ -81,6 +94,12 @@
             document.body.removeChild(tempInput);
             alert("Result copied to clipboard!");
         }
+
+        function clearAll() {
+            document.getElementById("numberInput").value = ""; // Clear input area
+            document.getElementById("result").value = ""; // Clear result area
+        }
     </script>
 </body>
+
 </html>
