@@ -7,21 +7,39 @@
     <style>
         body {
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a; /* Dark background color */
+            color: #ffffff; /* Light text color */
         }
         .container {
-            max-width: 400px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            background-color: #333; /* Slightly lighter background for the container */
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         textarea {
             width: 100%;
             height: 100px;
             resize: none;
+            border: 1px solid #555; /* Darker border color */
+            padding: 10px;
+            background-color: #222; /* Even darker background for the textarea */
+            color: #ffffff; /* Light text color */
         }
         button {
             margin-top: 10px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
         }
     </style>
 </head>
@@ -39,7 +57,7 @@
         function convertToList() {
             const inputText = document.getElementById("numberInput").value;
             const numbersArray = inputText.split("\n");
-            const validNumbersArray = numbersArray.filter(num => num.trim() !== ""); // Exclude empty rows
+            const validNumbersArray = numbersArray.filter(num => num.trim() !== "");
             const commaSeparatedList = validNumbersArray.join(", ");
             document.getElementById("result").value = commaSeparatedList;
         }
@@ -49,7 +67,8 @@
             const uniqueNumbersArray = [...new Set(resultText.split(", "))];
             const uniqueCommaSeparatedList = uniqueNumbersArray.join(", ");
             document.getElementById("result").value = uniqueCommaSeparatedList;
-            alert("Duplicates removed!");
+                alert("Duplicates removed!");
+            
         }
 
         function copyResult() {
